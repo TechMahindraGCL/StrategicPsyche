@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Questions</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Answer the Questions</h1>
+    </header>
+    <main>
+        <form action="{% url 'test_results' %}" method="post">
+            {% csrf_token %}
+            <!-- Example question loop -->
+            {% for question in questions %}
+            <div class="question">
+                <p>{{ question.text }}</p>
+                {% for answer in question.answers %}
+                <label>
+                    <input type="radio" name="question_{{ question.id }}" value="{{ answer.id }}">
+                    {{ answer.text }}
+                </label><br>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn">Submit Answers</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 StrategicPsyche. All rights reserved.</p>
+    </footer>
+</body>
+</html>

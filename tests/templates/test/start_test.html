@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrategicPsyche - Welcome</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to StrategicPsyche</h1>
+    </header>
+    <main>
+        <p>Test your psychological strengths and strategy skills through chess.</p>
+        <a href="{% url 'start_test' %}" class="btn">Start Your Test</a>
+    </main>
+    <footer>
+        <p>&copy; 2024 StrategicPsyche. All rights reserved.</p>
+    </footer>
+</body>
+</html>
